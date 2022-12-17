@@ -1,0 +1,56 @@
+<div class="container-name">
+    <label for="name">Name: </label>
+    <input [(ngModel)]="name" id="name">
+</div>
+
+<div class="contaier-desc">
+    <label for="desc">Description:</label>
+    <textarea id="desc" class="form-control" row="3" [(ngModel)]="desc"></textarea>
+</div>
+
+<div class="container-detail-desc">
+    <label for="detailDesc">Detailed Description:</label>
+    <textarea id="detailDesc" class="form-control" row="5" [(ngModel)]="detailedDesc"></textarea>
+</div>
+
+<div class="category-drop">
+    <label for="category">Category: </label>
+    <select id="category" [(ngModel)]="category" placeholder="category" required>
+        <option value="painting">Painting</option>
+        <option value="sculptor">Sculptor</option>
+        <option value="ornament">Ornament</option>
+    </select>
+</div>
+
+<div class="container-price">
+    <label for="price">Price: $</label>
+    <input [(ngModel)]="price" id="price">
+</div>
+
+<div class="container-end-date">
+    <label for="endDate">Bid End Date: </label>
+    <input [(ngModel)]="endDate" placeholder="mm-dd-yyyy" id="endDate">
+</div>
+
+<div class="container-img">
+    <label for="img">Image Source: </label>
+    <input [(ngModel)]="img" class="form-control" id="img">
+</div>
+
+<div class="text-center">
+    <button class="btn btn-success" (click)="addAuction()">Auction Your Product</button>
+</div>
+
+<hr>
+
+<div class="align-items-center col-xs-3" *ngFor="let i of menu" >
+    <div class="card" style="width: 18rem;">
+        <div>{{i.name}}</div>
+        <div class="container">
+            <img class="card-img-top thumbnail" src="{{ i.img }}" alt="{{ i.category }}" (click)="showProduct(i)">
+        </div>
+        <div class="card-body">
+          <a href="#" class="btn btn-primary btn-sm" (click)="onDelete(i.id)">Delete</a>
+        </div>
+    </div>
+</div>
