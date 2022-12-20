@@ -26,7 +26,7 @@ app.post('/test',(req,res,next) => {
         description: req.body.description,
         detailedDesc: req.body.detailedDesc,
         category: req.body.category,
-        price: req.body.price,
+        startingPrice: req.body.startingPrice,
         endDate: req.body.endDate,
         bidHistory: req.body.bidHistory
     });
@@ -52,6 +52,19 @@ app.delete("/test/delete/:id",(req,res,next) => {
         console.log(result);
         res.status(200).json({message: 'deletion success'});
     });  
+})
+
+app.get("/test/product/:id",(req,res,next) => {
+    Product.find({id: req.params.id}, (err,result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.status(200).json({
+                message: "Found Product",
+                outcome : result
+            })
+        }
+    });
 })
 
 

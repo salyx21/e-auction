@@ -5,7 +5,7 @@ const prodSchema = mongoose.Schema({
     description: String,
     detailedDesc: String,
     category: String,
-    price: Number,
+    startingPrice: Number,
     endDate: String,
     bidHistory: [{price: Number, name: String, email: String, mobile: String}]
 });
